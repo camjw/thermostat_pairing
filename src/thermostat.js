@@ -33,5 +33,20 @@ Thermostat.prototype.maximum = function() {
     return 25
   } else {
     return 32
-  }
+  };
+};
+
+Thermostat.prototype.reset = function() {
+  this.temperature = 20
 }
+
+Thermostat.prototype.usage = function() {
+  if (this.temperature < 18) {
+    return 'Low usage'
+  } else if (this.temperature < 25) {
+    return 'Medium usage'
+  }
+  else {
+    return 'High usage'
+  };
+};
