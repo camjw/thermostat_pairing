@@ -37,5 +37,12 @@ describe('Thermostat', function() {
   it('can turn power saving mode off', function() {
     thermostat.flipPowerSaving()
     expect(thermostat.powerSaving).toEqual(false)
+  });
+
+  it('throws an error if we try to increase temperature above the maximum', function(){
+    thermostat.temperature = thermostat.maximum()
+    expect(function() {
+      thermostat.increase();
+    }).toThrowError("Can't go above maximum temp");
   })
 });
