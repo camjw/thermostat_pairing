@@ -24,4 +24,14 @@ $(document).ready(function(){
     }
   })
 
+  $('#update_temp').click(function() {
+    var location = $('#location').val()
+    console.log(location)
+    $.get('https://api.openweathermap.org/data/2.5/weather?q='+location+'&appid=e911065bc54820857eac371350815d0b', function(data) {
+      $('#current_temp').text(data.main.temp - 273.15);
+    })
+  })
+
+
+
 })
